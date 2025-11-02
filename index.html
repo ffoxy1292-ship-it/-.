@@ -7,42 +7,15 @@
     <link rel="stylesheet" href="flower-styles.css">
 </head>
 <body>
-    <div class="magic-garden">
-        <div class="magic-flower">
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            <div class="magic-petal"></div>
-            
-            <div class="magic-center"></div>
-            <div class="magic-stem"></div>
-            
-            <div class="magic-leaf"></div>
-            <div class="magic-leaf"></div>
-        </div>
-        
-        <div class="welcome-magic">🌿 خضرة بإذن الله</div>
+    <div class="container">
+        <div class="flower">🌸</div>
+        <div class="text">🌿 خضرة بإذن الله</div>
     </div>
 
     <script>
-        // إضافة الومضات
-        const garden = document.querySelector('.magic-garden');
-        for (let i = 0; i < 15; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.animationDelay = Math.random() * 2 + 's';
-            garden.appendChild(sparkle);
-        }
-
-        setTimeout(() => {
+        setTimeout(function() {
             window.location.href = 'main.html';
-        }, 5000);
+        }, 3000);
     </script>
 </body>
 </html>
