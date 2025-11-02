@@ -1,164 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
+.flower-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: growFlower 3s ease-in-out forwards;
+}
 
-        .flower-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            transform-style: preserve-3d;
-            animation: growFlower 3s ease-in-out forwards;
-        }
+.petal {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: bottom center;
+    opacity: 0;
+    animation: openPetal 2s ease-in-out 1s forwards;
+}
 
-        .petal {
-            position: absolute;
-            width: 60px;
-            height: 100px;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            transform-origin: bottom center;
-            opacity: 0;
-            animation: openPetal 2s ease-in-out 1s forwards;
-        }
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-40px); animation-delay: 1.2s; }
+.petal:nth-child(2) { transform: rotate(45deg) translateY(-40px); animation-delay: 1.3s; }
+.petal:nth-child(3) { transform: rotate(90deg) translateY(-40px); animation-delay: 1.4s; }
+.petal:nth-child(4) { transform: rotate(135deg) translateY(-40px); animation-delay: 1.5s; }
+.petal:nth-child(5) { transform: rotate(180deg) translateY(-40px); animation-delay: 1.6s; }
+.petal:nth-child(6) { transform: rotate(225deg) translateY(-40px); animation-delay: 1.7s; }
+.petal:nth-child(7) { transform: rotate(270deg) translateY(-40px); animation-delay: 1.8s; }
+.petal:nth-child(8) { transform: rotate(315deg) translateY(-40px); animation-delay: 1.9s; }
 
-        /* ترتيب البتلات بشكل دائري */
-        .petal:nth-child(1) { transform: rotate(0deg) translateY(-40px); animation-delay: 1.2s; }
-        .petal:nth-child(2) { transform: rotate(45deg) translateY(-40px); animation-delay: 1.3s; }
-        .petal:nth-child(3) { transform: rotate(90deg) translateY(-40px); animation-delay: 1.4s; }
-        .petal:nth-child(4) { transform: rotate(135deg) translateY(-40px); animation-delay: 1.5s; }
-        .petal:nth-child(5) { transform: rotate(180deg) translateY(-40px); animation-delay: 1.6s; }
-        .petal:nth-child(6) { transform: rotate(225deg) translateY(-40px); animation-delay: 1.7s; }
-        .petal:nth-child(7) { transform: rotate(270deg) translateY(-40px); animation-delay: 1.8s; }
-        .petal:nth-child(8) { transform: rotate(315deg) translateY(-40px); animation-delay: 1.9s; }
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #ffd93d, #ff9a3d);
+    border-radius: 50%;
+    opacity: 0;
+    animation: showCenter 1s ease-in-out 2s forwards;
+    z-index: 10;
+}
 
-        .center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, #ffd93d, #ff9a3d);
-            border-radius: 50%;
-            opacity: 0;
-            animation: showCenter 1s ease-in-out 2s forwards;
-            z-index: 10;
-        }
+.stem {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 0;
+    background: linear-gradient(to top, #2d8b2d, #1a5f1a);
+    border-radius: 4px;
+    animation: growStem 2s ease-in-out forwards;
+}
 
-        .stem {
-            position: absolute;
-            bottom: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 0;
-            background: linear-gradient(to top, #2d8b2d, #1a5f1a);
-            border-radius: 4px;
-            animation: growStem 2s ease-in-out forwards;
-        }
+.leaf {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: #2d8b2d;
+    border-radius: 50% 0 50% 0;
+    opacity: 0;
+}
 
-        .leaf {
-            position: absolute;
-            width: 40px;
-            height: 20px;
-            background: #2d8b2d;
-            border-radius: 50% 0 50% 0;
-            opacity: 0;
-        }
+.leaf-1 {
+    bottom: -60px;
+    left: 30px;
+    transform: rotate(45deg);
+    animation: showLeaf 1s ease-in-out 2.5s forwards;
+}
 
-        .leaf-1 {
-            bottom: -60px;
-            left: 30px;
-            transform: rotate(45deg);
-            animation: showLeaf 1s ease-in-out 2.5s forwards;
-        }
+.leaf-2 {
+    bottom: -60px;
+    right: 30px;
+    transform: rotate(-45deg);
+    animation: showLeaf 1s ease-in-out 2.7s forwards;
+}
 
-        .leaf-2 {
-            bottom: -60px;
-            right: 30px;
-            transform: rotate(-45deg);
-            animation: showLeaf 1s ease-in-out 2.7s forwards;
-        }
+.welcome-text {
+    position: absolute;
+    bottom: 20%;
+    color: white;
+    font-size: 2em;
+    opacity: 0;
+    animation: fadeInText 2s ease-in-out 3s forwards;
+}
 
-        .welcome-text {
-            position: absolute;
-            bottom: 20%;
-            color: white;
-            font-size: 2em;
-            opacity: 0;
-            animation: fadeInText 2s ease-in-out 3s forwards;
-        }
+@keyframes growFlower {
+    0% { transform: scale(0.3) rotate(0deg); opacity: 0; }
+    50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
 
-        /* الأنيميشنات */
-        @keyframes growFlower {
-            0% { transform: scale(0.3) rotate(0deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
-            100% { transform: scale(1) rotate(360deg); opacity: 1; }
-        }
+@keyframes openPetal {
+    0% { opacity: 0; transform: rotate(var(--rot)) translateY(-40px) scale(0.5); }
+    100% { opacity: 1; transform: rotate(var(--rot)) translateY(-40px) scale(1); }
+}
 
-        @keyframes openPetal {
-            0% { opacity: 0; transform: rotate(var(--rot)) translateY(-40px) scale(0.5); }
-            100% { opacity: 1; transform: rotate(var(--rot)) translateY(-40px) scale(1); }
-        }
+@keyframes growStem {
+    0% { height: 0; opacity: 0; }
+    100% { height: 100px; opacity: 1; }
+}
 
-        @keyframes growStem {
-            0% { height: 0; opacity: 0; }
-            100% { height: 100px; opacity: 1; }
-        }
+@keyframes showCenter {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
 
-        @keyframes showCenter {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
+@keyframes showLeaf {
+    0% { opacity: 0; transform: scale(0) rotate(var(--rot)); }
+    100% { opacity: 1; transform: scale(1) rotate(var(--rot)); }
+}
 
-        @keyframes showLeaf {
-            0% { opacity: 0; transform: scale(0) rotate(var(--rot)); }
-            100% { opacity: 1; transform: scale(1) rotate(var(--rot)); }
-        }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body>
-    <div class="flower-container">
-        <!-- البتلات -->
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        
-        <!-- مركز الزهرة -->
-        <div class="center"></div>
-        
-        <!-- الساق -->
-        <div class="stem"></div>
-        
-        <!-- الأوراق -->
-        <div class="leaf leaf-1"></div>
-        <div class="leaf leaf-2"></div>
-    </div>
-
-    <div class="welcome-text">🌿 خضرة بإذن الله</div>
-
-    <script>
-        // الانتقال للصفحة الرئيسية بعد 5 ثواني
-        setTimeout(() => {
-            window.location.href = 'main.html';
-        }, 5000);
-    
+@keyframes fadeInText {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
