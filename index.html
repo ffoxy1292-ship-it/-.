@@ -4,165 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مرحباً</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #000;
-            height: 100vh;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* الخلفية السينمائية */
-        .cinematic-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0a3d0a, #1a5f1a, #2d8b2d);
-            opacity: 0;
-            animation: fadeInBG 3s ease-in-out forwards;
-        }
-
-        /* النجوم */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        /* الزهرة السينمائية */
-        .magic-flower {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 8em;
-            opacity: 0;
-            animation: magicBloom 2s ease-in-out 1s forwards;
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
-        }
-
-        /* النص السينمائي */
-        .cinematic-text {
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 3em;
-            opacity: 0;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            animation: textReveal 2s ease-in-out 2s forwards;
-        }
-
-        /* تأثيرات الضوء */
-        .light-beam {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.8), transparent);
-            animation: lightSweep 3s ease-in-out 0.5s;
-        }
-
-        /* الأنيميشنات */
-        @keyframes fadeInBG {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes magicBloom {
-            0% { 
-                transform: translate(-50%, -50%) scale(0) rotate(0deg);
-                opacity: 0;
-                filter: blur(20px);
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
-                opacity: 1;
-                filter: blur(0px) drop-shadow(0 0 30px gold);
-            }
-            100% { 
-                transform: translate(-50%, -50%) scale(1) rotate(360deg);
-                opacity: 1;
-                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
-            }
-        }
-
-        @keyframes textReveal {
-            0% { 
-                opacity: 0;
-                transform: translateX(-50%) translateY(50px);
-                letter-spacing: 20px;
-            }
-            100% { 
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-                letter-spacing: normal;
-            }
-        }
-
-        @keyframes lightSweep {
-            0% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
-            50% { transform: translateX(-50%) rotate(180deg); opacity: 1; }
-            100% { transform: translateX(-50%) rotate(360deg); opacity: 0; }
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-    </style>
+    <link rel="stylesheet" href="flower-styles.css">
 </head>
 <body>
-    <div class="cinematic-bg"></div>
-    
-    <div class="stars" id="stars"></div>
-    
-    <div class="light-beam"></div>
-    
-    <div class="magic-flower">✨️</div>
-    
-    <div class="cinematic-text">🌿 خضرة بإذن الله</div>
+    <div class="flower-container">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        
+        <div class="center"></div>
+        
+        <div class="stem"></div>
+        
+        <div class="leaf leaf-1"></div>
+        <div class="leaf leaf-2"></div>
+    </div>
+
+    <div class="welcome-text">🌿 خضرة بإذن الله</div>
 
     <script>
-        // إنشاء النجوم
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = Math.random() * 3 + 'px';
-            star.style.height = star.style.width;
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            starsContainer.appendChild(star);
-        }
-
-        // الانتقال بعد 4 ثواني
         setTimeout(() => {
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = 'main.html';
-            }, 1000);
-        }, 4000);
+            window.location.href = 'main.html';
+        }, 5000);
     </script>
 </body>
 </html>
