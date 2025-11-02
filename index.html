@@ -7,50 +7,37 @@
     <link rel="stylesheet" href="flower-styles.css">
 </head>
 <body>
-    <div class="flower-3d">
-        <!-- الطبقة الأولى -->
-        <div class="layer layer-1">
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
+    <div class="magic-garden">
+        <div class="magic-flower">
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            <div class="magic-petal"></div>
+            
+            <div class="magic-center"></div>
+            <div class="magic-stem"></div>
+            
+            <div class="magic-leaf"></div>
+            <div class="magic-leaf"></div>
         </div>
         
-        <!-- الطبقة الثانية -->
-        <div class="layer layer-2">
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-            <div class="petal-3d"></div>
-        </div>
-        
-        <div class="center-3d"></div>
-        <div class="stem-3d"></div>
-        
-        <!-- جزيئات الضوء -->
-        <div class="particles" id="particles"></div>
+        <div class="welcome-magic">🌿 خضرة بإذن الله</div>
     </div>
 
-    <div class="welcome-text-3d">🌿 خضرة بإذن الله</div>
-
     <script>
-        // إضافة جزيئات الضوء
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 3 + 's';
-            particlesContainer.appendChild(particle);
+        // إضافة الومضات
+        const garden = document.querySelector('.magic-garden');
+        for (let i = 0; i < 15; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            garden.appendChild(sparkle);
         }
 
         setTimeout(() => {
