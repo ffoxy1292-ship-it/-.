@@ -7,27 +7,52 @@
     <link rel="stylesheet" href="flower-styles.css">
 </head>
 <body>
-    <div class="flower-container">
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
-        <div class="petal"></div>
+    <div class="flower-3d">
+        <!-- الطبقة الأولى -->
+        <div class="layer layer-1">
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+        </div>
         
-        <div class="center"></div>
+        <!-- الطبقة الثانية -->
+        <div class="layer layer-2">
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+            <div class="petal-3d"></div>
+        </div>
         
-        <div class="stem"></div>
+        <div class="center-3d"></div>
+        <div class="stem-3d"></div>
         
-        <div class="leaf leaf-1"></div>
-        <div class="leaf leaf-2"></div>
+        <!-- جزيئات الضوء -->
+        <div class="particles" id="particles"></div>
     </div>
 
-    <div class="welcome-text">🌿 خضرة بإذن الله</div>
+    <div class="welcome-text-3d">🌿 خضرة بإذن الله</div>
 
     <script>
+        // إضافة جزيئات الضوء
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
         setTimeout(() => {
             window.location.href = 'main.html';
         }, 5000);
