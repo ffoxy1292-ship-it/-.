@@ -1,51 +1,166 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #0a1929;
+    background: #000;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
     overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
-.container {
-    text-align: center;
+.cinematic-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.flower {
-    font-size: 120px;
-    margin-bottom: 20px;
-    animation: bloom 2s ease-in-out;
+.mystic-flower {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.7));
 }
 
-.text {
+.petal {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #ff69b4, #ff1493);
+    border-radius: 50%;
+    animation: mysticBloom 2s ease-out forwards;
+    box-shadow: 0 0 20px #ff69b4;
+}
+
+.petal:nth-child(1) { 
+    top: 50px; left: 100px; 
+    animation-delay: 0.3s; 
+}
+.petal:nth-child(2) { 
+    top: 30px; left: 170px; 
+    animation-delay: 0.5s; 
+}
+.petal:nth-child(3) { 
+    top: 80px; left: 220px; 
+    animation-delay: 0.7s; 
+}
+.petal:nth-child(4) { 
+    top: 150px; left: 240px; 
+    animation-delay: 0.9s; 
+}
+.petal:nth-child(5) { 
+    top: 220px; left: 220px; 
+    animation-delay: 1.1s; 
+}
+.petal:nth-child(6) { 
+    top: 260px; left: 170px; 
+    animation-delay: 1.3s; 
+}
+.petal:nth-child(7) { 
+    top: 240px; left: 100px; 
+    animation-delay: 1.5s; 
+}
+.petal:nth-child(8) { 
+    top: 180px; left: 60px; 
+    animation-delay: 1.7s; 
+}
+
+.core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, #ffd700, #ff8c00);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: coreGlow 1.5s ease-out 2s forwards;
+    box-shadow: 0 0 40px #ffd700;
+}
+
+.stem {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 6px;
+    height: 0;
+    background: linear-gradient(to bottom, #32cd32, #228b22);
+    transform: translateX(-50%);
+    animation: stemGrow 2s ease-out 0.5s forwards;
+}
+
+.light-beam {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        rgba(255, 215, 0, 0.8), 
+        transparent);
+    transform: translateX(-50%);
+    animation: lightSweep 3s ease-in-out;
+}
+
+.cinematic-text {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     color: white;
-    font-size: 32px;
-    animation: fadeIn 3s ease-in-out;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: textReveal 2s ease-out 2.5s forwards;
+    letter-spacing: 3px;
 }
 
-@keyframes bloom {
+@keyframes mysticBloom {
     0% { 
-        transform: scale(0) rotate(0deg); 
-        opacity: 0; 
-    }
-    50% { 
-        transform: scale(1.2) rotate(180deg); 
-        opacity: 1; 
+        width: 0; height: 0; opacity: 0; 
+        filter: blur(20px);
     }
     100% { 
-        transform: scale(1) rotate(360deg); 
-        opacity: 1; 
+        width: 80px; height: 80px; opacity: 1; 
+        filter: blur(0);
     }
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+@keyframes coreGlow {
+    0% { 
+        width: 0; height: 0; opacity: 0; 
+        box-shadow: 0 0 0px #ffd700;
+    }
+    100% { 
+        width: 60px; height: 60px; opacity: 1; 
+        box-shadow: 0 0 40px #ffd700;
+    }
+}
+
+@keyframes stemGrow {
+    0% { height: 0; opacity: 0; }
+    100% { height: 200px; opacity: 1; }
+}
+
+@keyframes lightSweep {
+    0% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+    50% { transform: translateX(-50%) rotate(180deg); opacity: 1; }
+    100% { transform: translateX(-50%) rotate(360deg); opacity: 0; }
+}
+
+@keyframes textReveal {
+    0% { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(50px);
+        letter-spacing: 20px;
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0);
+        letter-spacing: 3px;
+    }
 }
