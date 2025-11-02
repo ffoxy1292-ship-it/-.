@@ -1,166 +1,169 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background: #000;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    font-family: 'Arial', sans-serif;
 }
 
-.cinematic-scene {
+.flower-scene {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
 }
 
-.mystic-flower {
+.ground {
     position: absolute;
-    top: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background: #2d1b0e;
+    border-radius: 50% 50% 0 0;
+}
+
+.stem {
+    position: absolute;
+    bottom: 80px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.7));
+    width: 8px;
+    height: 0;
+    background: linear-gradient(to top, #2d8b2d, #1a5f1a);
+    transform: translateX(-50%);
+    animation: growStem 2s ease-out forwards;
+}
+
+.bud {
+    position: absolute;
+    bottom: 280px;
+    left: 50%;
+    width: 20px;
+    height: 30px;
+    background: #1a5f1a;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: growBud 1s ease-out 2s forwards;
+    opacity: 0;
 }
 
 .petal {
     position: absolute;
     width: 0;
     height: 0;
-    background: radial-gradient(circle, #ff69b4, #ff1493);
+    background: #ff6b6b;
     border-radius: 50%;
-    animation: mysticBloom 2s ease-out forwards;
-    box-shadow: 0 0 20px #ff69b4;
+    opacity: 0;
+    transform-origin: bottom center;
 }
 
-.petal:nth-child(1) { 
-    top: 50px; left: 100px; 
-    animation-delay: 0.3s; 
+.petal-1 { 
+    bottom: 270px; left: 190px; 
+    animation: openPetal 1s ease-out 3s forwards; 
 }
-.petal:nth-child(2) { 
-    top: 30px; left: 170px; 
-    animation-delay: 0.5s; 
+.petal-2 { 
+    bottom: 260px; left: 200px; 
+    animation: openPetal 1s ease-out 3.2s forwards; 
 }
-.petal:nth-child(3) { 
-    top: 80px; left: 220px; 
-    animation-delay: 0.7s; 
+.petal-3 { 
+    bottom: 250px; left: 210px; 
+    animation: openPetal 1s ease-out 3.4s forwards; 
 }
-.petal:nth-child(4) { 
-    top: 150px; left: 240px; 
-    animation-delay: 0.9s; 
+.petal-4 { 
+    bottom: 260px; left: 220px; 
+    animation: openPetal 1s ease-out 3.6s forwards; 
 }
-.petal:nth-child(5) { 
-    top: 220px; left: 220px; 
-    animation-delay: 1.1s; 
+.petal-5 { 
+    bottom: 270px; left: 210px; 
+    animation: openPetal 1s ease-out 3.8s forwards; 
 }
-.petal:nth-child(6) { 
-    top: 260px; left: 170px; 
-    animation-delay: 1.3s; 
-}
-.petal:nth-child(7) { 
-    top: 240px; left: 100px; 
-    animation-delay: 1.5s; 
-}
-.petal:nth-child(8) { 
-    top: 180px; left: 60px; 
-    animation-delay: 1.7s; 
+.petal-6 { 
+    bottom: 280px; left: 200px; 
+    animation: openPetal 1s ease-out 4s forwards; 
 }
 
-.core {
+.center {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    bottom: 260px;
+    left: 200px;
     width: 0;
     height: 0;
-    background: radial-gradient(circle, #ffd700, #ff8c00);
+    background: #ffd93d;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: coreGlow 1.5s ease-out 2s forwards;
-    box-shadow: 0 0 40px #ffd700;
+    animation: growCenter 1s ease-out 4.5s forwards;
+    opacity: 0;
 }
 
-.stem {
+.leaf {
     position: absolute;
-    top: 70%;
-    left: 50%;
-    width: 6px;
+    width: 0;
     height: 0;
-    background: linear-gradient(to bottom, #32cd32, #228b22);
-    transform: translateX(-50%);
-    animation: stemGrow 2s ease-out 0.5s forwards;
+    background: #2d8b2d;
+    border-radius: 50% 0 50% 0;
+    opacity: 0;
 }
 
-.light-beam {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, 
-        transparent, 
-        rgba(255, 215, 0, 0.8), 
-        transparent);
-    transform: translateX(-50%);
-    animation: lightSweep 3s ease-in-out;
+.leaf-1 {
+    bottom: 180px;
+    left: 170px;
+    animation: growLeaf 1s ease-out 2.5s forwards;
 }
 
-.cinematic-text {
+.leaf-2 {
+    bottom: 150px;
+    left: 220px;
+    animation: growLeaf 1s ease-out 2.7s forwards;
+}
+
+.title {
     position: absolute;
-    bottom: 20%;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    font-family: Arial, sans-serif;
     opacity: 0;
-    animation: textReveal 2s ease-out 2.5s forwards;
-    letter-spacing: 3px;
+    animation: fadeInTitle 2s ease-out 5s forwards;
 }
 
-@keyframes mysticBloom {
-    0% { 
-        width: 0; height: 0; opacity: 0; 
-        filter: blur(20px);
-    }
-    100% { 
-        width: 80px; height: 80px; opacity: 1; 
-        filter: blur(0);
-    }
-}
-
-@keyframes coreGlow {
-    0% { 
-        width: 0; height: 0; opacity: 0; 
-        box-shadow: 0 0 0px #ffd700;
-    }
-    100% { 
-        width: 60px; height: 60px; opacity: 1; 
-        box-shadow: 0 0 40px #ffd700;
-    }
-}
-
-@keyframes stemGrow {
+@keyframes growStem {
     0% { height: 0; opacity: 0; }
     100% { height: 200px; opacity: 1; }
 }
 
-@keyframes lightSweep {
-    0% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
-    50% { transform: translateX(-50%) rotate(180deg); opacity: 1; }
-    100% { transform: translateX(-50%) rotate(360deg); opacity: 0; }
+@keyframes growBud {
+    0% { opacity: 0; transform: translateX(-50%) scale(0); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1); }
 }
 
-@keyframes textReveal {
+@keyframes openPetal {
     0% { 
-        opacity: 0; 
-        transform: translateX(-50%) translateY(50px);
-        letter-spacing: 20px;
+        width: 0; height: 0; opacity: 0; 
+        transform: scale(0) rotate(0deg);
     }
     100% { 
-        opacity: 1; 
-        transform: translateX(-50%) translateY(0);
-        letter-spacing: 3px;
+        width: 40px; height: 60px; opacity: 1; 
+        transform: scale(1) rotate(var(--rot, 0deg));
     }
+}
+
+@keyframes growCenter {
+    0% { width: 0; height: 0; opacity: 0; }
+    100% { width: 30px; height: 30px; opacity: 1; }
+}
+
+@keyframes growLeaf {
+    0% { width: 0; height: 0; opacity: 0; }
+    100% { width: 40px; height: 25px; opacity: 1; }
+}
+
+@keyframes fadeInTitle {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    100% { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
